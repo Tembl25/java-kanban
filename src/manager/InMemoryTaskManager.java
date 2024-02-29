@@ -1,5 +1,7 @@
 package manager;
 
+import interfaces.HistoryManager;
+import interfaces.TaskManager;
 import tasks.Epic;
 import tasks.Subtask;
 import tasks.Task;
