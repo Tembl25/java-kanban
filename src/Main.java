@@ -31,6 +31,19 @@ public class Main {
         System.out.println("======================");
         System.out.println("После изменения задач:");
         printAllTask(taskManager);
+
+        System.out.println("======================");
+        System.out.println("Статусы эпиков и подзадач после изменения:");
+
+        System.out.println("Статусы эпиков:");
+        for (Epic epic : taskManager.getAllEpics()) {
+            System.out.println("Эпик: " + epic.getTitle() + ", Статус: " + epic.getStatus());
+        }
+
+        System.out.println("Статусы подзадач:");
+        for (Subtask subtask : taskManager.getAllSubtasks()) {
+            System.out.println("Подзадача: " + subtask.getTitle() + ", Статус: " + subtask.getStatus());
+        }
     }
 
     private static void addAllTask(TaskManager taskManager) {
