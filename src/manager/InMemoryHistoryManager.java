@@ -10,6 +10,7 @@ import java.util.List;
 
 public class InMemoryHistoryManager implements HistoryManager {
     private final Deque<Task> taskHistory;
+    private static final int MAX_TASK_HISTORY_SIZE = 10;
 
     public InMemoryHistoryManager() {
         this.taskHistory = new LinkedList<>();
@@ -18,9 +19,8 @@ public class InMemoryHistoryManager implements HistoryManager {
     @Override
     public void add(Task task) {
         if (task != null) {
-            taskHistory.remove(task);
             taskHistory.addFirst(task);
-            if (taskHistory.size() > 10) {
+            if (taskHistory.size() > MAX_TASK_HISTORY_SIZE) {
                 taskHistory.removeLast();
             }
         }
@@ -30,5 +30,4 @@ public class InMemoryHistoryManager implements HistoryManager {
     public List<Task> getHistory() {
         return new ArrayList<>(taskHistory);
     }
-
 }
